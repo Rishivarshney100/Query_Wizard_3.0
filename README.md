@@ -43,22 +43,19 @@ Enterprises struggle with complex, location bound database access and multilingu
 ## 📂 Project Structure
 
 ```
-Query-WIzard/
-├── backend/                  # Python backend (Flask API + Streamlit)
-│   ├── app.py                # Flask API for React frontend
-│   ├── main.py               # Streamlit app
-│   ├── db_config.py          # DB config; reads/writes .env in project root
-│   ├── db_handler.py         # Database connections and query execution
-│   ├── schema_handler.py     # Schema retrieval; uses backend/mysql_schema.json
-│   ├── ai_generator.py       # AI-based SQL generation (Gemini)
-│   ├── query_parser.py       # Query parsing and validation
-│   ├── mysql_schema.json     # Cached MySQL schema
-│   └── __init__.py
-├── frontend/                 # React + Vite UI (optional alternative to Streamlit)
-├── .env                      # DB credentials + GOOGLE_API_KEY (project root)
+Query_Wizard_3.0/
+├── __pycache__/              # Compiled bytecode files
+├── ai_generator.py           # Handles AI-based SQL generation
+├── db_config.py              # Database configuration settings
+├── db_handler.py             # Functions for database connections and query execution
+├── login.py                  # User authentication logic
 ├── logo.png                  # Application logo
+├── main.py                   # Main application script
+├── mysql_schema.json         # Sample MySQL schema for reference
+├── prompt.py                 # Prompt templates for AI model
+├── query_parser.py           # Parses and validates generated SQL queries
 ├── requirements.txt          # Python dependencies
-├── run_backend.sh            # Start Flask API from project root
+├── schema_handler.py         # Manages database schema retrieval and display
 └── README.md                 # Project documentation
 ```
 
@@ -95,73 +92,17 @@ Query-WIzard/
 
 4. **Run the Application**
 
-   - **Streamlit UI** (from project root):
-     ```bash
-     cd backend && streamlit run main.py
-     ```
-   - **React + Flask** (Flask API first, then frontend):
-     ```bash
-     ./run_backend.sh
-     ```
-     Then in another terminal: `cd frontend && npm install && npm run dev`. Open http://localhost:5173.
-
----
-
-## 📦 Desktop Build (.exe / .dmg)
-
-This repo now supports packaging the React + Flask app into a desktop binary.
-
-### Local build
-
-1. **macOS build**
    ```bash
-   ./scripts/build_desktop_mac.sh
+   streamlit run main.py
    ```
-   Output: `dist/QueryWizard` (macOS app binary).
-
-2. **Windows build**
-   ```powershell
-   ./scripts/build_desktop_win.ps1
-   ```
-   Output: `dist/QueryWizard.exe`.
-
-### CI build for both platforms
-
-1. Push your code to GitHub.
-2. Create and push a tag:
-   ```bash
-   git tag v1.0.0
-   git push origin v1.0.0
-   ```
-3. GitHub Actions workflow `Build Desktop Binaries` will run on `windows-latest` and `macos-latest`.
-4. Download artifacts from the workflow run:
-   - `QueryWizard-Windows` (`.exe`)
-   - `QueryWizard-macOS` (`.app`)
-   - `QueryWizard-macOS-dmg` (`.dmg`, if generated)
-   - `QueryWizard-Setup.exe` (Windows installer, creates `%USERPROFILE%\.querywizard\.env` on install)
-
-### Publish download links
-
-1. Open GitHub `Releases` and create a release for your tag (example: `v1.0.0`).
-2. Upload built files (`QueryWizard.exe`, `.app`, `.dmg`) as release assets.
-3. Share direct links in this format:
-   - `https://github.com/<owner>/<repo>/releases/download/v1.0.0/QueryWizard.exe`
-   - `https://github.com/<owner>/<repo>/releases/download/v1.0.0/QueryWizard.dmg`
-
-### Runtime requirements for end users
-
-- MySQL must be reachable from the local machine.
-- `GOOGLE_API_KEY` must be available in `.env`.
-- On first launch, users enter DB name/password in the app (saved to `.env`).
 
 ---
 
 ## 🔐 Configuration
 
-- **Database**: In dev mode, use project-root `.env`. In packaged mode, settings are saved to `~/.querywizard/.env`.
-- **AI Model**: Set `GOOGLE_API_KEY` in the same `.env` used at runtime (dev: project root, packaged: `~/.querywizard/.env`).
-- **Schema**: In dev mode schema cache is `backend/mysql_schema.json`; in packaged mode it is `~/.querywizard/mysql_schema.json`.
-- **Language Support**: Modify `deep_translator` settings in `backend/main.py` to add or change supported languages.
+- **Database Settings**: Update `db_config.py` with your MySQL credentials and connection details.
+- **AI Model API Key**: Ensure you have access to the Google Gemini AI API and set the necessary keys in `ai_generator.py`.
+- **Language Support**: Modify `deep_translator` settings in `main.py` to add or change supported languages.
 
 ---
 
