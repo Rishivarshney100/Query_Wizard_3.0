@@ -6,6 +6,7 @@ Enterprises struggle with complex, location bound database access and multilingu
 
 ---
 
+Demo video: https://drive.google.com/file/d/1SS0zpAC1vNNCH3Ql35JETbnHiLE39-if/view?usp=sharing
 ## 🚀 Features
 
 - **Natural Language to SQL**: Convert plain English (or other supported languages) into accurate SQL queries using AI.
