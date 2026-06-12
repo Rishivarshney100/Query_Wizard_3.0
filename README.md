@@ -1,7 +1,8 @@
 # Query Wizard 3.0
 
-Built with Python, Gemini AI, PostgreSQL, MySQL, SQLite, Speech Recognition, and multilingual NLP.
 > AI-powered database interaction platform that enables users to query databases using natural language through text or voice.
+
+Built with Python, Gemini AI, RAG, PostgreSQL, MySQL, SQLite, Speech Recognition, and multilingual NLP.
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![Gemini](https://img.shields.io/badge/Google-Gemini-orange)
@@ -17,17 +18,21 @@ Built with Python, Gemini AI, PostgreSQL, MySQL, SQLite, Speech Recognition, and
 
 Modern databases are powerful, but interacting with them still requires technical expertise.
 
-Writing SQL queries can be difficult for beginners, business users, and multilingual audiences. Query Wizard 3.0 bridges this gap by allowing users to interact with databases using natural language instead of SQL.
+Writing SQL queries can be difficult for beginners, business users, and multilingual audiences.
 
-Users can simply type or speak their requests, and Query Wizard automatically generates executable SQL queries while providing explanations, multilingual support, schema awareness, and real-time execution.
+Query Wizard 3.0 bridges this gap by allowing users to interact with databases using natural language instead of SQL.
+
+The platform leverages a schema-aware Retrieval-Augmented Generation (RAG) pipeline with Gemini AI to retrieve relevant database context before generating SQL queries. This enables more accurate and context-aware query generation while reducing hallucinations.
+
+Users can simply type or speak their requests, and Query Wizard automatically generates executable SQL queries with multilingual support, schema awareness, explanations, and real-time execution.
 
 The platform is designed to make database interaction:
 
-- 🌍 Accessible from anywhere
-- 🗣️ Available in multiple languages
-- 🎤 Voice-enabled
-- 🧠 AI-assisted
-- 👥 Friendly for both technical and non-technical users
+🌍 Accessible from anywhere
+🗣️ Available in multiple languages
+🎤 Voice-enabled
+🧠 AI-assisted
+👥 Friendly for both technical and non-technical users
 
 ---
 
@@ -91,24 +96,33 @@ Export query outputs for analysis.
 ### 🧩 Modular Architecture
 Designed for scalability and future enhancements.
 
+### 📝 Query version control
+Designed to keep track of all the version and queries executed in the past.
+
 ---
 
 ## 🏗 System Workflow
 
 ```text
-User Input (Text / Voice)
-            ↓
-Speech Recognition Layer
-            ↓
-Language Translation Layer
-            ↓
-Gemini AI Query Generator
-            ↓
-Query Parser & Validation
-            ↓
-Database Execution Engine
-            ↓
-Result + Explanation + History
+Query Wizard follows a schema-aware RAG workflow.
+
+Before generating SQL, the system retrieves database metadata and contextual schema information, which are injected into Gemini prompts to generate more accurate queries.
+
+Pipeline
+
+User Query
+↓
+Schema Retrieval Layer
+↓
+Context Augmentation (RAG)
+↓
+Gemini AI Query Generation
+↓
+Query Parsing & Validation
+↓
+Database Execution
+↓
+Results + Explanation + History
 ```
 
 ---
@@ -128,11 +142,14 @@ Result + Explanation + History
 
 ### AI & NLP
 - Google Gemini AI
+- Retrieval-Augmented Generation (RAG)
+- Prompt Engineering
 - SpeechRecognition
 - Deep Translator
 
 ### Supporting Components
 - Schema Parsing
+- Context Retrieval Engine
 - Query Validation
 - Authentication
 - Audit Logging
@@ -275,10 +292,7 @@ Track previous interactions and executions.
 - MongoDB support
 - Redis support
 - AWS RDS integration
-- Query version control
 - Exportable audit logs
-- RAG-based schema understanding
-- LangChain integration
 - Enterprise observability
 
 ---
@@ -318,12 +332,6 @@ Track previous interactions and executions.
 ## 📄 License
 
 This project is licensed under the MIT License.
-
----
-
-## 🙏 Acknowledgments
-
-Special thanks to the mentors and contributors at G. L. Bajaj Institute of Technology and Management for supporting this initiative.
 
 ---
 
