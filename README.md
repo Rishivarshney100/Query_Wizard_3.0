@@ -1,63 +1,173 @@
 # Query Wizard 3.0
 
-Enterprises struggle with complex, location bound database access and multilingual barriers. So an automated AI-driven platform is required for real-time, natural language interaction with databases accessible anytime, anywhere, by anyone. In database management, many individuals, such as beginners and nontechnical users, often struggle with writing SQL queries. This challenge motivated my team to create Query Wizard to ease writing queries. **Query Wizard 3.0** is an AI-powered Database handling platform that allows users to interact with real-time databases using NLP through text and voice input, from any location on the globe with multilingual support.
+Built with Python, Gemini AI, PostgreSQL, MySQL, SQLite, Speech Recognition, and multilingual NLP.
+> AI-powered database interaction platform that enables users to query databases using natural language through text or voice.
+
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Gemini](https://img.shields.io/badge/Google-Gemini-orange)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Supported-blue)
+![MySQL](https://img.shields.io/badge/MySQL-Supported-green)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ![Query Wizard Logo](logo.png)
 
 ---
 
-Demo video: https://drive.google.com/file/d/1SS0zpAC1vNNCH3Ql35JETbnHiLE39-if/view?usp=sharing
+## 📌 Overview
+
+Modern databases are powerful, but interacting with them still requires technical expertise.
+
+Writing SQL queries can be difficult for beginners, business users, and multilingual audiences. Query Wizard 3.0 bridges this gap by allowing users to interact with databases using natural language instead of SQL.
+
+Users can simply type or speak their requests, and Query Wizard automatically generates executable SQL queries while providing explanations, multilingual support, schema awareness, and real-time execution.
+
+The platform is designed to make database interaction:
+
+- 🌍 Accessible from anywhere
+- 🗣️ Available in multiple languages
+- 🎤 Voice-enabled
+- 🧠 AI-assisted
+- 👥 Friendly for both technical and non-technical users
+
+---
+
+## 🚀 Demo
+
+🎥 Demo Video:
+
+https://drive.google.com/file/d/1SS0zpAC1vNNCH3Ql35JETbnHiLE39-if/view?usp=sharing
+
+🌐 Live Application:
+
+https://query-wizard.vercel.app
+
+📂 Repository:
+
+https://github.com/Rishivarshney100/Query_Wizard_3.0
+
+---
+
+# ✨ Key Highlights
+
+### Version Evolution
+
+| Version | Supported Databases |
+|----------|-------------------|
+| V1.0 | SQLite3 |
+| V2.0 | MySQL + SQLite3 |
+| V3.0 | PostgreSQL + MySQL + SQLite3 |
+
+---
+
 ## 🚀 Features
 
-- **Natural Language to SQL**: Convert plain English (or other supported languages) into accurate SQL queries using AI.
-- **Voice Input Support**: Speak your queries—ideal for accessibility and hands-free environments.
-- **Live SQL Execution**: Run generated queries directly on your **MySQL** database and view results instantly.
-- **Schema Preview**: Visualize database tables and column structures for better context.
-- **Multi-Language Support**: Interact in various languages, breaking down language barriers in data querying.
-- **User Authentication**: Secure login system to manage user access.
-- **Modular Architecture**: Easily extendable components for future enhancements.
-- **Explanation Box**: View simplified explanations of the generated SQL queries to understand their function.
-- **History Audits**: Track and view past queries, responses, and user activity for transparency and learning.
+### 🧠 Natural Language to SQL
+Convert plain English (or supported languages) into executable SQL queries using AI.
+
+### 🎤 Voice Input Support
+Speak your queries instead of typing.
+
+### ⚡ Real-Time Query Execution
+Execute generated queries directly on connected databases.
+
+### 🌐 Multi-Language Support
+Interact using multiple languages.
+
+### 📊 Schema Preview
+Visualize database tables and column structures.
+
+### 💡 Query Explanation Engine
+Understand what each generated SQL query does.
+
+### 🔐 User Authentication
+Secure login system for controlled access.
+
+### 📝 History Audits
+Track previous queries, responses, and activities.
+
+### 📁 CSV Export Support
+Export query outputs for analysis.
+
+### 🧩 Modular Architecture
+Designed for scalability and future enhancements.
+
+---
+
+## 🏗 System Workflow
+
+```text
+User Input (Text / Voice)
+            ↓
+Speech Recognition Layer
+            ↓
+Language Translation Layer
+            ↓
+Gemini AI Query Generator
+            ↓
+Query Parser & Validation
+            ↓
+Database Execution Engine
+            ↓
+Result + Explanation + History
+```
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: [Streamlit](https://streamlit.io/) – Interactive UI for seamless user experience.
-- **Backend**:
-  - **AI Model**: Google Gemini AI for natural language processing.
-  - **Database**: **MySQL** for managing and executing SQL queries.
-  - **Voice Recognition**: [SpeechRecognition](https://pypi.org/project/SpeechRecognition/) library for converting speech to text.
-  - **Language Translation**: [Deep Translator](https://pypi.org/project/deep-translator/) for multi-language support.
+### Frontend
+- Streamlit
+
+### Backend
+- Python
+
+### Databases
+- PostgreSQL
+- MySQL
+- SQLite3
+
+### AI & NLP
+- Google Gemini AI
+- SpeechRecognition
+- Deep Translator
+
+### Supporting Components
+- Schema Parsing
+- Query Validation
+- Authentication
+- Audit Logging
 
 ---
 
-## 📂 System Architecture
-1. High-Level Design
-   ![diagram-export-5-12-2025-3_23_46-PM](https://github.com/user-attachments/assets/0a1f1e45-bc77-4a08-9ffa-3dde5a253ffe)
+# 📂 System Architecture
 
-2. Low-Level Design
-   ![diagram-export-5-12-2025-5_51_26-PM](https://github.com/user-attachments/assets/597390d0-02df-4151-83ef-973eb337cebe)
+### 1. High-Level Design
+
+![diagram-export-5-12-2025-3_23_46-PM](https://github.com/user-attachments/assets/0a1f1e45-bc77-4a08-9ffa-3dde5a253ffe)
+
+### 2. Low-Level Design
+
+![diagram-export-5-12-2025-5_51_26-PM](https://github.com/user-attachments/assets/597390d0-02df-4151-83ef-973eb337cebe)
 
 ---
 
 ## 📂 Project Structure
 
-```
+```text
 Query_Wizard_3.0/
 ├── __pycache__/              # Compiled bytecode files
-├── ai_generator.py           # Handles AI-based SQL generation
-├── db_config.py              # Database configuration settings
-├── db_handler.py             # Functions for database connections and query execution
-├── login.py                  # User authentication logic
+├── ai_generator.py           # AI-powered SQL generation
+├── db_config.py              # Database configurations
+├── db_handler.py             # Query execution and DB connections
+├── login.py                  # Authentication logic
 ├── logo.png                  # Application logo
-├── main.py                   # Main application script
-├── mysql_schema.json         # Sample MySQL schema for reference
-├── prompt.py                 # Prompt templates for AI model
-├── query_parser.py           # Parses and validates generated SQL queries
-├── requirements.txt          # Python dependencies
-├── schema_handler.py         # Manages database schema retrieval and display
-└── README.md                 # Project documentation
+├── main.py                   # Entry point
+├── mysql_schema.json         # Schema metadata
+├── prompt.py                 # Prompt templates
+├── query_parser.py           # SQL parsing and validation
+├── requirements.txt          # Dependencies
+├── schema_handler.py         # Schema visualization
+└── README.md                 # Documentation
 ```
 
 ---
@@ -66,98 +176,148 @@ Query_Wizard_3.0/
 
 ### Prerequisites
 
-- Python 3.7 or higher
-- pip (Python package installer)
+- Python 3.7+
+- pip
 
-### Steps
+### Clone Repository
 
-1. **Clone the Repository**
+```bash
+git clone https://github.com/Rishivarshney100/Query_Wizard_3.0.git
+cd Query_Wizard_3.0
+```
 
-   ```bash
-   git clone https://github.com/Rishivarshney100/Query_Wizard_3.0.git
-   cd Query_Wizard_3.0
-   ```
+### Create Virtual Environment (Optional)
 
-2. **Create a Virtual Environment (Optional but Recommended)**
+```bash
+python -m venv venv
+source venv/bin/activate
+```
 
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+Windows:
 
-3. **Install Dependencies**
+```bash
+venv\Scripts\activate
+```
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+### Install Dependencies
 
-4. **Run the Application**
+```bash
+pip install -r requirements.txt
+```
 
-   ```bash
-   streamlit run main.py
-   ```
+### Run Application
+
+```bash
+streamlit run main.py
+```
 
 ---
 
 ## 🔐 Configuration
 
-- **Database Settings**: Update `db_config.py` with your MySQL credentials and connection details.
-- **AI Model API Key**: Ensure you have access to the Google Gemini AI API and set the necessary keys in `ai_generator.py`.
-- **Language Support**: Modify `deep_translator` settings in `main.py` to add or change supported languages.
+### Database Settings
+Update:
+
+```python
+db_config.py
+```
+
+with your database credentials.
+
+### Gemini API Key
+Configure API keys inside:
+
+```python
+ai_generator.py
+```
+
+### Language Support
+Modify:
+
+```python
+main.py
+```
+
+to add or customize supported languages.
 
 ---
 
 ## 🧪 Usage
 
-1. **Login**: Start the application and log in with your credentials.
-2. **Select Database**: Choose the MySQL database you want to interact with.
-3. **Input Query**:
-   - **Text**: Type your query in natural language.
-   - **Voice**: Click on the microphone icon and speak your query.
-4. **Generate SQL**: The AI model will convert your input into an SQL query.
-5. **Explanation Box**: Review the simplified explanation of what your SQL query does.
-6. **Execute Query**: Run the generated SQL and view the results directly in the app.
-7. **History Audits**: Navigate the history section to revisit previous queries and executions.
+### 1. Login
+Authenticate using your credentials.
+
+### 2. Select Database
+Choose the database you want to query.
+
+### 3. Enter Input
+- Text input
+- Voice input
+
+### 4. Generate SQL
+AI converts natural language into SQL.
+
+### 5. Review Explanation
+Understand what the generated query does.
+
+### 6. Execute Query
+Run the SQL and retrieve results instantly.
+
+### 7. View Audit History
+Track previous interactions and executions.
 
 ---
 
-## 🛠️ Future Enhancements
+## 🚀 Future Enhancements
 
-- Support for cloud databases (e.g., PostgreSQL, MongoDB, AWS RDS)
-- OAuth 2.0 authentication for enterprise-level security
-- Query version control and rollback
-- Enhanced data visualization and BI dashboard integrations
-- Exportable query logs for enterprise audit compliance
+- OAuth 2.0 authentication
+- Data visualization dashboards
+- MongoDB support
+- Redis support
+- AWS RDS integration
+- Query version control
+- Exportable audit logs
+- RAG-based schema understanding
+- LangChain integration
+- Enterprise observability
 
 ---
 
 ## 🚀 UI
+
 ![Screenshot 2025-05-12 160303](https://github.com/user-attachments/assets/4a2c7c1c-957c-4374-a7de-8cba7befd8f2)
 
 ---
 
-## 🚀 Sample TestCase
+## 🧪 Sample Test Cases
+
 ![Screenshot 2025-05-12 160648](https://github.com/user-attachments/assets/fd148490-1af0-4662-8d73-6ce7cd162102)
+
 ![Screenshot 2025-05-12 160736](https://github.com/user-attachments/assets/599b42bd-b208-4428-989c-7f8a3a60653c)
+
 ![Screenshot 2025-05-12 160907](https://github.com/user-attachments/assets/8bee0649-8c22-4477-a478-f6e49439b221)
 
 ---
 
-## 👤 Authors
+## 👨‍💻 Authors
 
-- **Rishi Varshney**  
-  [LinkedIn](https://www.linkedin.com/in/rishi-varshney100/) | [LeetCode](https://leetcode.com/u/Rishi_varshney/)  
-  Email: rishi.varshney100@gmail.com
+### Rishi Varshney
 
-- **Tushar Ranjan**  
-  [LinkedIn](https://www.linkedin.com/in/tushar-ranjan-4186a8179/) | [LeetCode](https://leetcode.com/u/tushar_ranjan/)  
-  Email: tusharranjan151@gmail.com
+- LinkedIn: https://www.linkedin.com/in/rishi-varshney100/
+- LeetCode: https://leetcode.com/u/Rishi_varshney/
+- Email: rishi.varshney100@gmail.com
+
+### Tushar Ranjan
+
+- LinkedIn: https://www.linkedin.com/in/tushar-ranjan-4186a8179/
+- LeetCode: https://leetcode.com/u/tushar_ranjan/
+- Email: tusharranjan151@gmail.com
 
 ---
 
-## 📊 License
+## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is licensed under the MIT License.
 
 ---
 
@@ -167,4 +327,4 @@ Special thanks to the mentors and contributors at G. L. Bajaj Institute of Techn
 
 ---
 
-> 📄 *Query Wizard 3.0 is built to make data interaction as natural as a conversation.*
+> **Query Wizard 3.0 makes database interaction as natural as a conversation.**
